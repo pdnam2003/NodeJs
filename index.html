@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <form action="" id="mt">
+        <label for="">so thu 1 :</label>
+        <input type="text" id="n1">
+
+        <select name="pheptinh" id="pheptinh">
+            <option value="tong">+</option>
+            <option value="hieu">-</option>
+            <option value="tich">x</option>
+            <option value="thuong">:</option>
+        </select>
+
+        <label for="">so thu 2 : </label>
+        <input type="text" id="n2">
+
+        <button id="khoidong"> tinh ket qua</button>
+    </form>
+</body>
+<script>
+    document.getElementById("mt").addEventListener('submit', async function (e) {
+        e.preventDefault();
+        const n1 = parseFloat(document.getElementById("n1").value);
+        const n2 = parseFloat(document.getElementById("n2").value);
+        const pt = document.getElementById("pheptinh").value;
+        console.log(n1, pt, n2);
+        if (pt == "tong") {
+            console.log("abcabc");
+
+            const response = await fetch("http://localhost:3000/sum", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                },
+                body: JSON.stringify({ n1, n2 })
+
+            })
+            const data = await response.json();
+            console.log(data.result)
+        }
+    });
+
+
+
+
+
+</script>
+
+</html>
