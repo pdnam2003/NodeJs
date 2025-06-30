@@ -1,57 +1,35 @@
 <!DOCTYPE html>
-<html lang="en">
-
+<html lang="vi">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Quản lý xe (Car CRUD)</title>
+    <link rel="stylesheet" href="style.css">
 </head>
-
 <body>
-    <form action="" id="mt">
-        <label for="">so thu 1 :</label>
-        <input type="text" id="n1">
-
-        <select name="pheptinh" id="pheptinh">
-            <option value="tong">+</option>
-            <option value="hieu">-</option>
-            <option value="tich">x</option>
-            <option value="thuong">:</option>
-        </select>
-
-        <label for="">so thu 2 : </label>
-        <input type="text" id="n2">
-
-        <button id="khoidong"> tinh ket qua</button>
+    <h1>Quản lý xe</h1>
+    <form id="carForm">
+        <input type="hidden" id="carId">
+        <label>Tên xe: <input type="text" id="ten" required></label>
+        <label>Hãng: <input type="text" id="hang" required></label>
+        <label>Năm SX: <input type="number" id="nam_sx" required></label>
+        <label>Biển số: <input type="text" id="bien_so" required></label>
+        <button type="submit">Thêm xe</button>
+        <button type="button" id="resetBtn">Làm mới</button>
     </form>
+    <h2>Danh sách xe</h2>
+    <table id="carTable">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Tên xe</th>
+                <th>Hãng</th>
+                <th>Năm SX</th>
+                <th>Biển số</th>
+                <th>Hành động</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+    <script src="script.js"></script>
 </body>
-<script>
-    document.getElementById("mt").addEventListener('submit', async function (e) {
-        e.preventDefault();
-        const n1 = parseFloat(document.getElementById("n1").value);
-        const n2 = parseFloat(document.getElementById("n2").value);
-        const pt = document.getElementById("pheptinh").value;
-        console.log(n1, pt, n2);
-        if (pt == "tong") {
-            console.log("abcabc");
-
-            const response = await fetch("http://localhost:3000/sum", {
-                method: "POST",
-                headers: {
-                    "Content-Type": "application/json",
-                },
-                body: JSON.stringify({ n1, n2 })
-
-            })
-            const data = await response.json();
-            console.log(data.result)
-        }
-    });
-
-
-
-
-
-</script>
-
-</html>
+</html> 
