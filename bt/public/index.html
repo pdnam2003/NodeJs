@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <title>Quản lý Sinh viên & Khóa học</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <h1>Quản lý Sinh viên & Khóa học</h1>
+    <div class="container">
+        <div class="block">
+            <h2>Sinh viên</h2>
+            <form id="studentForm">
+                <input type="hidden" id="studentId">
+                <label>Tên: <input type="text" id="studentName" required></label>
+                <label>Email: <input type="email" id="studentEmail" required></label>
+                <label>Ngày sinh: <input type="date" id="studentDob" required></label>
+                <button type="submit">Thêm sinh viên</button>
+                <button type="button" id="resetStudentBtn">Làm mới</button>
+            </form>
+            <table id="studentTable">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Tên</th>
+                        <th>Email</th>
+                        <th>Ngày sinh</th>
+                        <th>Khóa học</th>
+                        <th>Hành động</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+        <div class="block">
+            <h2>Khóa học</h2>
+            <form id="courseForm">
+                <input type="hidden" id="courseId">
+                <label>Tên: <input type="text" id="courseName" required></label>
+                <label>Mô tả: <input type="text" id="courseDesc"></label>
+                <button type="submit">Thêm khóa học</button>
+                <button type="button" id="resetCourseBtn">Làm mới</button>
+            </form>
+            <table id="courseTable">
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Tên</th>
+                        <th>Mô tả</th>
+                        <th>Hành động</th>
+                    </tr>
+                </thead>
+                <tbody></tbody>
+            </table>
+        </div>
+    </div>
+    <div class="block">
+        <h2>Đăng ký khóa học cho sinh viên</h2>
+        <form id="registerForm">
+            <label>Sinh viên:
+                <select id="registerStudent"></select>
+            </label>
+            <label>Khóa học:
+                <select id="registerCourse" multiple size="3"></select>
+            </label>
+            <button type="submit">Đăng ký</button>
+        </form>
+        <div id="registrationResult"></div>
+    </div>
+    <script src="script.js"></script>
+</body>
+</html> 
